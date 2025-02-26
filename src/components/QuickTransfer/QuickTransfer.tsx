@@ -1,12 +1,12 @@
+import { User } from '../../../types'
 import React, { useState } from 'react'
 import { IoIosSend } from 'react-icons/io'
-import { IoIosArrowForward } from 'react-icons/io'
-import { User } from '../../../types'
 import { users } from '../../utils/constants'
+import { IoIosArrowForward } from 'react-icons/io'
 
 const QuickTransfer: React.FC = () => {
   const [selectedUser, setSelectedUser] = useState<User>(users[0])
-  const [amount, setAmount] = useState<number>(525.5)
+  const [amount, setAmount] = useState<string>('')
 
   return (
     <div className="bg-white w-full px-6 py-6 rounded-xl md:max-w-[445px] h-[276px] space-y-6">
@@ -56,13 +56,16 @@ const QuickTransfer: React.FC = () => {
 
         <div className="flex items-center bg-gray-100 rounded-full max-w-[265px] w-full">
           <input
-            type="number"
+            type="text"
             value={amount}
-            onChange={(e) => setAmount(parseFloat(e.target.value) || 0)}
+            onChange={(e) => setAmount(e.target.value)}
             className="w-[50%] flex-grow bg-transparent text-gray-700 text-[14px] font-semibold text-center focus:outline-none"
           />
 
-          <button className="w-[50%] bg-black text-white flex items-center justify-center space-x-2 px-6 py-3 rounded-full">
+          <button
+            onClick={() => setAmount('')}
+            className="w-[50%] cursor-pointer bg-black text-white flex items-center justify-center space-x-2 px-6 py-3 rounded-full"
+          >
             <span className="text-md">Send</span>
             <IoIosSend className="text-lg" />
           </button>

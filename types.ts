@@ -30,3 +30,16 @@ export interface User {
   role: string
   image: string
 }
+
+export type FormValues = {
+  yourName: string
+  userName: string
+  email: string
+  password: string
+  dateOfBirth: string
+  presentAddress: string
+  permanentAddress: string
+  city: string
+  postalCode: string
+  country: string
+}

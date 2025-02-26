@@ -175,63 +175,73 @@ export const users: User[] = [
 export const profileFields = [
   {
     label: 'Your Name',
+    name: 'yourName',
     type: 'text',
     placeholder: 'Enter your name',
-    defaultValue: 'Charlene Reed'
+    defaultValue: ''
   },
   {
     label: 'User Name',
+    name: 'userName',
     type: 'text',
     placeholder: 'Enter your username',
-    defaultValue: 'Charlene Reed'
+    defaultValue: ''
   },
   {
     label: 'Email',
+    name: 'email',
     type: 'email',
     placeholder: 'Enter your email',
-    defaultValue: 'charlenereed@gmail.com'
+    defaultValue: ''
   },
   {
     label: 'Password',
+    name: 'password',
     type: 'password',
     placeholder: 'Enter your password',
-    defaultValue: '********'
+    defaultValue: ''
   },
   {
     label: 'Date of Birth',
+    name: 'dateOfBirth',
     type: 'date',
     placeholder: 'Select your birth date',
-    defaultValue: '1990-01-25'
+    defaultValue: undefined
   },
   {
     label: 'Present Address',
+    name: 'presentAddress',
     type: 'text',
     placeholder: 'Enter present address',
-    defaultValue: 'San Jose, California, USA'
+    defaultValue: ''
   },
   {
     label: 'Permanent Address',
+    name: 'permanentAddress',
     type: 'text',
     placeholder: 'Enter permanent address',
-    defaultValue: 'San Jose, California, USA'
+    defaultValue: ''
   },
   {
     label: 'City',
+    name: 'city',
     type: 'text',
     placeholder: 'Enter your city',
-    defaultValue: 'San Jose'
+    defaultValue: ''
   },
   {
     label: 'Postal Code',
+    name: 'postalCode',
     type: 'text',
     placeholder: 'Enter postal code',
-    defaultValue: '45962'
+    defaultValue: ''
   },
   {
     label: 'Country',
+    name: 'country',
     type: 'text',
     placeholder: 'Enter country',
-    defaultValue: 'USA'
+    defaultValue: ''
   }
 ]
 
@@ -242,9 +252,9 @@ export const expenseChartdata = {
       label: 'Expense Distribution',
       data: [30, 25, 25, 35],
       backgroundColor: ['#1E2A50', '#3D65FC', '#E57C27', '#1D1D1D'],
-      borderColor: '#ffffff', // White border to create the slice gaps
-      borderWidth: 8, // ✅ Increased to add more gap
-      hoverOffset: 10 // ✅ Adds more spacing on hover
+      borderColor: '#ffffff',
+      borderWidth: 8,
+      hoverOffset: 10
     }
   ]
 }
