@@ -7,7 +7,7 @@ const SearchBar = () => {
         viewBox="0 0 24 24"
         strokeWidth={2}
         stroke="currentColor"
-        className="w-5 h-5 text-[#718EBF]"
+        className="w-5 h-5 text-grey"
       >
         <path
           strokeLinecap="round"
@@ -18,7 +18,7 @@ const SearchBar = () => {
       <input
         type="text"
         placeholder="Search for something"
-        className="bg-transparent outline-none text-gray-400 placeholder-[#8BA3CB] w-full"
+        className="bg-transparent outline-none text-gray-400 placeholder-placeholder w-full"
       />
     </div>
   )

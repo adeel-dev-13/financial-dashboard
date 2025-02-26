@@ -1,5 +1,5 @@
-import { balanceHistoryData } from "../../utils/constants";
-import React from "react";
+import { balanceHistoryData } from '../../utils/constants'
+import React from 'react'
 import {
   Area,
   XAxis,
@@ -7,15 +7,17 @@ import {
   Tooltip,
   AreaChart,
   CartesianGrid,
-  ResponsiveContainer,
-} from "recharts";
-
+  ResponsiveContainer
+} from 'recharts'
 
 const BalanceHistory: React.FC = () => {
   return (
-    <div className="w-full h-[276px] bg-white rounded-2xl p-4 md:max-w-[635px]" >
-  
-      <ResponsiveContainer width="100%" height={250} className="md:max-w-[635px]">
+    <div className="w-full h-[276px] bg-white rounded-2xl p-4 md:max-w-[635px]">
+      <ResponsiveContainer
+        width="100%"
+        height={250}
+        className="md:max-w-[635px]"
+      >
         <AreaChart className="mt-2.5 mr-2.5" data={balanceHistoryData}>
           <defs>
             <linearGradient id="colorBalance" x1="0" y1="0" x2="0" y2="1">
@@ -25,8 +27,8 @@ const BalanceHistory: React.FC = () => {
           </defs>
 
           <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
-          <XAxis dataKey="month" tick={{ fill: "#9CA3AF" }} />
-          <YAxis tick={{ fill: "#9CA3AF" }} domain={[0, 800]} />
+          <XAxis dataKey="month" tick={{ fill: '#9CA3AF' }} />
+          <YAxis tick={{ fill: '#9CA3AF' }} domain={[0, 800]} />
           <Tooltip />
 
           <Area
@@ -40,7 +42,7 @@ const BalanceHistory: React.FC = () => {
         </AreaChart>
       </ResponsiveContainer>
     </div>
-  );
-};
+  )
+}
 
-export default BalanceHistory;
+export default BalanceHistory

@@ -1,38 +1,55 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
 }
 
 @layer base {
   :root {
-    --primary: 220 32% 31%; 
-    --primary-foreground: 0 0% 98%; 
+    --primary: 220 32% 31%;
+    --primary-foreground: 0 0% 98%;
   }
 
   .dark {
-    --primary: 220 32% 70%; 
+    --primary: 220 32% 70%;
     --primary-foreground: 0 0% 9%;
   }
 }
+@theme {
+  --color-primary: #343c6a;
+  --color-light-grey: #f5f7fa;
+  --color-blue: #396aff;
+  --color-light-black: #232323;
+  --color-red: #ff4b4a;
+  --color-light-green: #41d4a8;
+  --color-grey: #718ebf;
+  --color-dark-grey: #5b5a6f;
+  --color-orange: #fc7900;
+  --color-disabled: #b1b1b1;
+  --color-blue-primary: #0047ff;
+  --color-grey-default: #626170;
+  --color-black-default: #0f0f0f;
+  --color-offwhite: #dfeaf2;
+  --color-light-black: #9199af80;
+  --color-light-bg: #e6eff5;
+  --color-placeholder: #8ba3cb;
+  --color-white-shade1: #f5f5f5;
+}
 
-
-.recharts-wrapper{
-
+.recharts-wrapper {
   padding: 0 !important;
   width: 100%;
 }
 
-.recharts-surface{
+.recharts-surface {
   padding: 0 !important;
 }
 
-.recharts-surface > svg{
- width: 100%;
+.recharts-surface > svg {
+  width: 100%;
 }
 
-.customchart .recharts-curve{
+.customchart .recharts-curve {
   display: none !important;
 }

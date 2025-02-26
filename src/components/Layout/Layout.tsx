@@ -1,12 +1,12 @@
-import App from '../../App';
-import { FiMenu } from 'react-icons/fi';
-import React, { useState } from 'react';
-import Sidebar from '../Sidebar/Sidebar';
-import { IoClose } from 'react-icons/io5';
-import PrimaryHeader from '../PrimaryHeader/PrimaryHeader';
+import App from '../../App'
+import { FiMenu } from 'react-icons/fi'
+import React, { useState } from 'react'
+import Sidebar from '../Sidebar/Sidebar'
+import { IoClose } from 'react-icons/io5'
+import PrimaryHeader from '../PrimaryHeader/PrimaryHeader'
 
 const Layout: React.FC = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -17,13 +17,19 @@ const Layout: React.FC = () => {
         <Sidebar />
       </div>
 
-      <div className={`bg-[#E6EFF5] flex-1 flex flex-col transition-all duration-300 ${isSidebarOpen ? 'ml-0' : 'ml-0'}`}>
+      <div
+        className={`bg-light-bg flex-1 flex flex-col transition-all duration-300 ${isSidebarOpen ? 'ml-0' : 'ml-0'}`}
+      >
         <div className="relative">
           <button
             className="md:hidden absolute top-5 left-5 z-50 bg-white shadow-md p-2 rounded-md"
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           >
-            {isSidebarOpen ? <IoClose className="text-2xl text-gray-700" /> : <FiMenu className="text-2xl text-gray-700" />}
+            {isSidebarOpen ? (
+              <IoClose className="text-2xl text-gray-700" />
+            ) : (
+              <FiMenu className="text-2xl text-gray-700" />
+            )}
           </button>
           <PrimaryHeader />
         </div>
@@ -38,7 +44,7 @@ const Layout: React.FC = () => {
         ></div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

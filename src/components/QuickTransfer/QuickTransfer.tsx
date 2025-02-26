@@ -1,31 +1,8 @@
 import React, { useState } from 'react'
-import { Profile } from '../../assets'
 import { IoIosSend } from 'react-icons/io'
 import { IoIosArrowForward } from 'react-icons/io'
-
-interface User {
-  name: string
-  role: string
-  image: string
-}
-
-const users: User[] = [
-  {
-    name: 'Livia Bator',
-    role: 'CEO',
-    image: Profile 
-  },
-  {
-    name: 'Randy Press',
-    role: 'Director',
-    image: Profile
-  },
-  {
-    name: 'Workman',
-    role: 'Designer',
-    image: Profile
-  }
-]
+import { User } from '../../../types'
+import { users } from '../../utils/constants'
 
 const QuickTransfer: React.FC = () => {
   const [selectedUser, setSelectedUser] = useState<User>(users[0])
@@ -59,7 +36,7 @@ const QuickTransfer: React.FC = () => {
               {user.name}
             </span>
             <span
-              className={`text-[15px] text-[#718EBF] ${
+              className={`text-[15px] text-grey ${
                 selectedUser.name === user.name ? 'font-bold' : 'font-normal'
               }`}
             >
