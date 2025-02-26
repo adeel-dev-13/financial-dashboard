@@ -110,7 +110,8 @@ const SettingsPage: React.FC = () => {
                 <div className="mt-6 text-end">
                   <button
                     type="submit"
-                    className="bg-black text-white px-6 py-2 rounded-[15px] min-w-[190px]"
+                    className="bg-black text-white px-6 py-2 rounded-[15px] min-w-[190px] 
+                    hover:ring-2 hover:ring-gray-600 transition-all duration-300 ease-in-out"
                   >
                     Save
                   </button>

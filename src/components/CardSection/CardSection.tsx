@@ -10,7 +10,7 @@ const CardSection = () => {
       <div className="flex justify-between items-center">
         <h2 className="font-bold text-lg text-primary">My Cards</h2>
         <p
-          className="text-primary cursor-pointer font-medium"
+          className="text-primary cursor-pointer font-medium hover:text-blue hover:underline hover:scale-105 transition-transform duration-200"
           onClick={() => navigate('/cards')}
         >
           See All

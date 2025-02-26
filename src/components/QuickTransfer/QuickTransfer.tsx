@@ -64,10 +64,11 @@ const QuickTransfer: React.FC = () => {
 
           <button
             onClick={() => setAmount('')}
-            className="w-[50%] cursor-pointer bg-black text-white flex items-center justify-center space-x-2 px-6 py-3 rounded-full"
+            className="w-[50%] cursor-pointer bg-black text-white flex items-center justify-center space-x-2 px-6 py-3 rounded-full 
+             hover:bg-gray-900 transition-all duration-300 ease-in-out group"
           >
             <span className="text-md">Send</span>
-            <IoIosSend className="text-lg" />
+            <IoIosSend className="text-lg transform transition-transform duration-300 group-hover:translate-x-1" />
           </button>
         </div>
       </div>
