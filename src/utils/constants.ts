@@ -141,3 +141,66 @@ export const users: User[] = [
     image: Profile
   }
 ]
+
+export const profileFields = [
+  {
+    label: 'Your Name',
+    type: 'text',
+    placeholder: 'Enter your name',
+    defaultValue: 'Charlene Reed'
+  },
+  {
+    label: 'User Name',
+    type: 'text',
+    placeholder: 'Enter your username',
+    defaultValue: 'Charlene Reed'
+  },
+  {
+    label: 'Email',
+    type: 'email',
+    placeholder: 'Enter your email',
+    defaultValue: 'charlenereed@gmail.com'
+  },
+  {
+    label: 'Password',
+    type: 'password',
+    placeholder: 'Enter your password',
+    defaultValue: '********'
+  },
+  {
+    label: 'Date of Birth',
+    type: 'date',
+    placeholder: 'Select your birth date',
+    defaultValue: '1990-01-25'
+  },
+  {
+    label: 'Present Address',
+    type: 'text',
+    placeholder: 'Enter present address',
+    defaultValue: 'San Jose, California, USA'
+  },
+  {
+    label: 'Permanent Address',
+    type: 'text',
+    placeholder: 'Enter permanent address',
+    defaultValue: 'San Jose, California, USA'
+  },
+  {
+    label: 'City',
+    type: 'text',
+    placeholder: 'Enter your city',
+    defaultValue: 'San Jose'
+  },
+  {
+    label: 'Postal Code',
+    type: 'text',
+    placeholder: 'Enter postal code',
+    defaultValue: '45962'
+  },
+  {
+    label: 'Country',
+    type: 'text',
+    placeholder: 'Enter country',
+    defaultValue: 'USA'
+  }
+]
