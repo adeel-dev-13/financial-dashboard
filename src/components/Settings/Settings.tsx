@@ -8,6 +8,7 @@ const SettingsPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState('Edit Profile')
 
   return (
+
     <div className="max-w-[1110px] mx-auto overflow-hidden pt-3">
       <div className="bg-white p-[30px] rounded-[25px] shadow-md mt-6">
         <div className="flex border-b mt-4 mb-10 relative">
