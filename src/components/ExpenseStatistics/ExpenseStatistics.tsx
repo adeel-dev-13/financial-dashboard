@@ -1,63 +1,29 @@
-import React from "react";
-import { PieChart, Pie, Cell } from "recharts";
-import { expensesData } from "../../utils/constants";
+import React from 'react'
+import { PolarArea } from 'react-chartjs-2'
+import ChartDataLabels from 'chartjs-plugin-datalabels'
+import { expenseChartdata, options } from '../../utils/constants'
+import {
+  Legend,
+  Tooltip,
+  ArcElement,
+  Chart as ChartJS,
+  RadialLinearScale
+} from 'chart.js'
 
+ChartJS.register(
+  Tooltip,
+  Legend,
+  ArcElement,
+  ChartDataLabels,
+  RadialLinearScale
+)
 
-
-const ExpenseStatistics: React.FC = () => {
+const PolarChart: React.FC = () => {
   return (
-    <div className="customchart flex flex-col items-center justify-center bg-white p-4 rounded-xl  md:w-[350px] h-[322px]">
-      <PieChart width={250} height={250}>
-        <Pie
-          data={expensesData}
-          cx="50%"
-          cy="50%"
-          innerRadius={1}
-          outerRadius={110} 
-          startAngle={160}
-          endAngle={-200}
-          paddingAngle={2} 
-          dataKey="value"
-          label={({ cx, cy, midAngle, outerRadius, percent, index }) => {
-            const RADIAN = Math.PI / 180;
-            const adjustedRadius = outerRadius *0.6
-            const x = cx + adjustedRadius * Math.cos(-midAngle * RADIAN);
-            const y = cy + adjustedRadius * Math.sin(-midAngle * RADIAN);
-
-            return (
-              <text
-                x={x}
-                y={y}
-                fill="white"
-                fontSize={14}
-                fontWeight="bold"
-                textAnchor="middle"
-                dominantBaseline="central"
-              >
-                {`${(percent * 100).toFixed(0)}%`}
-                <tspan x={x} dy="1.2em" fontSize={10}>
-                  {expensesData[index].name}
-                </tspan>
-              </text>
-            );
-          }}
-        >
-          {expensesData.map((entry, index) => (
-          <Cell
-          key={`cell-${index}`}
-          fill={entry.color}
-          transform={
-            index === 0 ? "scale(1.01, 1.01)" : 
-            index === 1 ? "scale(1.05, 0.99)" :  
-            index === 2 ? "scale(1.0, 1.0)" :      
-            index === 3 ? "scale(0.99, 0.96)" : 
-            "scale(1, 1)"
-          }
-        />
-          ))}
-        </Pie>
-      </PieChart>
+    <div className="w-full pt-12  bg-white max-w-[350px] h-[322px] rounded-[25px] flex items-center justify-center">
+      <PolarArea data={expenseChartdata} options={options} />
     </div>
-  );
-};
-export default ExpenseStatistics;
+  )
+}
+
+export default PolarChart

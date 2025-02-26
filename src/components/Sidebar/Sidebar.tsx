@@ -1,5 +1,5 @@
-import { Logo } from '../Icons'
 import React from 'react'
+import { Logo } from '../Icons'
 import { IoClose } from 'react-icons/io5'
 import { SideBarItems } from '../../utils/constants'
 import SidebarItem from '../SidebarItem/SidebarItem'
@@ -37,6 +37,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsSidebarOpen }) => {
                 Icon={item.icon}
                 text={item.text}
                 active={item.active}
+                href={item.path}
               />
             ))}
           </ul>

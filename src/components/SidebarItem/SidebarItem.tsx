@@ -4,14 +4,21 @@ interface SidebarItemProps {
   text: string
   Icon: IconType
   active?: boolean
+  href: string
 }
 
-const SidebarItem: React.FC<SidebarItemProps> = ({ Icon, text, active }) => {
+const SidebarItem: React.FC<SidebarItemProps> = ({
+  Icon,
+  text,
+  active,
+  href
+}) => {
   return (
-    <div
-      className={`relative flex items-center space-x-4 p-4 cursor-pointer transition rounded-lg ${
-        active ? 'bg-white-shade1' : 'hover:bg-gray-100'
-      }`}
+    <a
+      href={href}
+      className={`relative flex items-center space-x-4 p-4 cursor-pointer transition rounded-lg 
+        ${active ? 'bg-white-shade1' : 'hover:bg-gray-100'}
+      `}
     >
       {active && (
         <div className="absolute left-0 top-1/2 -translate-y-1/2 h-3/4 w-2 bg-light-black rounded-r-full"></div>
@@ -28,7 +35,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ Icon, text, active }) => {
       >
         {text}
       </span>
-    </div>
+    </a>
   )
 }
 

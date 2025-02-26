@@ -17,39 +17,48 @@ export const SideBarItems = [
   {
     icon: TiHome,
     text: 'Dashboard',
-    active: true
+    active: true,
+    path: '/'
   },
   {
     icon: TransactionIcon,
-    text: 'Transactions'
+    text: 'Transactions',
+    path: '/'
   },
   {
     icon: FaUser,
-    text: 'Accounts'
+    text: 'Accounts',
+    path: '/'
   },
   {
     icon: InvestmentIocn,
-    text: 'Investments'
+    text: 'Investments',
+    path: '/'
   },
   {
     icon: CreditcardIcon,
-    text: 'Credit Cards'
+    text: 'Credit Cards',
+    path: '/cards'
   },
   {
     icon: LoanIcon,
-    text: 'Loans'
+    text: 'Loans',
+    path: '/'
   },
   {
     icon: ServiceIcon,
-    text: 'Services'
+    text: 'Services',
+    path: '/'
   },
   {
     icon: Privileges,
-    text: 'My Privileges'
+    text: 'My Privileges',
+    path: '/'
   },
   {
     icon: FaCog,
-    text: 'Settings'
+    text: 'Settings',
+    path: '/settings'
   }
 ]
 
@@ -63,6 +72,27 @@ export const cardsData: CardType[] = [
   },
   {
     id: 2,
+    cardNumber: '3778 **** **** 4321',
+    balance: 3420,
+    holderName: 'Jane Doe',
+    validity: '12/22'
+  },
+  {
+    id: 3,
+    cardNumber: '3778 **** **** 4321',
+    balance: 3420,
+    holderName: 'Jane Doe',
+    validity: '12/22'
+  },
+  {
+    id: 4,
+    cardNumber: '3778 **** **** 4321',
+    balance: 3420,
+    holderName: 'Jane Doe',
+    validity: '12/22'
+  },
+  {
+    id: 5,
     cardNumber: '3778 **** **** 4321',
     balance: 3420,
     holderName: 'Jane Doe',
@@ -204,3 +234,57 @@ export const profileFields = [
     defaultValue: 'USA'
   }
 ]
+
+export const expenseChartdata = {
+  labels: ['Entertainment', 'Investment', 'Bill Expense', 'Others'],
+  datasets: [
+    {
+      label: 'Expense Distribution',
+      data: [30, 25, 25, 35],
+      backgroundColor: ['#1E2A50', '#3D65FC', '#E57C27', '#1D1D1D'],
+      borderColor: '#ffffff', // White border to create the slice gaps
+      borderWidth: 8, // ✅ Increased to add more gap
+      hoverOffset: 10 // ✅ Adds more spacing on hover
+    }
+  ]
+}
+
+export const options = {
+  responsive: true,
+  maintainAspectRatio: false,
+  layout: {
+    padding: 2
+  },
+  plugins: {
+    legend: {
+      display: false
+    },
+    datalabels: {
+      color: '#ffffff',
+      font: {
+        size: 10
+      },
+      formatter: (value: number, context: any) => {
+        return `${value}%\n${context.chart.data.labels[context.dataIndex]}`
+      },
+      offset: 2,
+      clip: false
+    }
+  },
+  scales: {
+    r: {
+      grid: {
+        display: false
+      },
+      ticks: {
+        display: false
+      },
+      suggestedMin: 10,
+      suggestedMax: 10,
+
+      pointLabels: {
+        display: false
+      }
+    }
+  }
+}

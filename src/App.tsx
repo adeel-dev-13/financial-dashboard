@@ -1,9 +1,9 @@
 // src/App.tsx
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-
 import Settings from './components/Settings/Settings'
 import Dashboard from './components/dashboard/Dashboard'
+import CardsPage from './components/CardsPage/CardsPage'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 const App: React.FC = () => {
   return (
@@ -14,7 +14,7 @@ const App: React.FC = () => {
 
         {/* Another route => Settings */}
         <Route path="/settings" element={<Settings />} />
-
+        <Route path="/cards" element={<CardsPage />} />
         {/* Catch-all route => Not Found page */}
         <Route path="*" element={<></>} />
       </Routes>
