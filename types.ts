@@ -42,4 +42,5 @@ export type FormValues = {
   city: string
   postalCode: string
   country: string
+  image?: string
 }

@@ -124,6 +124,22 @@ export const transactions: TransactionItemType[] = [
     amount: 5400,
     type: 'income',
     Icon: CardIcon
+  },
+  {
+    id: 3,
+    name: 'Jemi Wilson',
+    date: '21 January 2021',
+    amount: 5400,
+    type: 'income',
+    Icon: CardIcon
+  },
+  {
+    id: 3,
+    name: 'Jemi Wilson',
+    date: '21 January 2021',
+    amount: 5400,
+    type: 'income',
+    Icon: CardIcon
   }
 ]
 
@@ -177,71 +193,61 @@ export const profileFields = [
     label: 'Your Name',
     name: 'yourName',
     type: 'text',
-    placeholder: 'Enter your name',
-    defaultValue: ''
+    placeholder: 'Enter your name'
   },
   {
     label: 'User Name',
     name: 'userName',
     type: 'text',
-    placeholder: 'Enter your username',
-    defaultValue: ''
+    placeholder: 'Enter your username'
   },
   {
     label: 'Email',
     name: 'email',
     type: 'email',
-    placeholder: 'Enter your email',
-    defaultValue: ''
+    placeholder: 'Enter your email'
   },
   {
     label: 'Password',
     name: 'password',
     type: 'password',
-    placeholder: 'Enter your password',
-    defaultValue: ''
+    placeholder: 'Enter your password'
   },
   {
     label: 'Date of Birth',
     name: 'dateOfBirth',
     type: 'date',
-    placeholder: 'Select your birth date',
-    defaultValue: undefined
+    placeholder: 'Select your birth date'
   },
   {
     label: 'Present Address',
     name: 'presentAddress',
     type: 'text',
-    placeholder: 'Enter present address',
-    defaultValue: ''
+    placeholder: 'Enter present address'
   },
   {
     label: 'Permanent Address',
     name: 'permanentAddress',
     type: 'text',
-    placeholder: 'Enter permanent address',
-    defaultValue: ''
+    placeholder: 'Enter permanent address'
   },
   {
     label: 'City',
     name: 'city',
     type: 'text',
-    placeholder: 'Enter your city',
-    defaultValue: ''
+    placeholder: 'Enter your city'
   },
   {
     label: 'Postal Code',
     name: 'postalCode',
     type: 'text',
-    placeholder: 'Enter postal code',
-    defaultValue: ''
+    placeholder: 'Enter postal code'
   },
   {
     label: 'Country',
     name: 'country',
     type: 'text',
-    placeholder: 'Enter country',
-    defaultValue: ''
+    placeholder: 'Enter country'
   }
 ]
 

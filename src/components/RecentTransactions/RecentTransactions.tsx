@@ -8,7 +8,10 @@ export default function RecentTransactions() {
         Recent Transactions
       </h2>
 
-      <div className="flex flex-col bg-white rounded-xl w-full p-5 space-y-3 md:max-w-[350px]">
+      <div
+        className="flex flex-col bg-white rounded-xl w-full p-5 space-y-3 md:max-w-[350px] 
+                      max-h-[235px] overflow-y-auto scrollbar-hide"
+      >
         {transactions.map((transaction) => (
           <TransactionItem key={transaction.id} transaction={transaction} />
         ))}

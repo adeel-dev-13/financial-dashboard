@@ -9,13 +9,9 @@ const App: React.FC = () => {
   return (
     <Router>
       <Routes>
-        {/* Default route => Dashboard */}
         <Route path="/" element={<Dashboard />} />
-
-        {/* Another route => Settings */}
         <Route path="/settings" element={<Settings />} />
         <Route path="/cards" element={<CardsPage />} />
-        {/* Catch-all route => Not Found page */}
         <Route path="*" element={<></>} />
       </Routes>
     </Router>

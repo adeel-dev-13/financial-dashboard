@@ -8,6 +8,20 @@ const QuickTransfer: React.FC = () => {
   const [selectedUser, setSelectedUser] = useState<User>(users[0])
   const [amount, setAmount] = useState<string>('')
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let rawValue = e.target.value.replace(/[$,]/g, '') // Remove $ and commas
+
+    if (rawValue === '' || /^\d*\.?\d*$/.test(rawValue)) {
+      setAmount(rawValue ? `$${formatNumber(rawValue)}` : '') // Format and update state
+    }
+  }
+  const formatNumber = (num: string) => {
+    if (!num) return ''
+    const [integer, decimal] = num.split('.')
+    const formattedInteger = integer.replace(/\B(?=(\d{3})+(?!\d))/g, ',') // Add commas
+    return decimal ? `${formattedInteger}.${decimal}` : formattedInteger
+  }
+
   return (
     <div className="bg-white w-full px-6 py-6 rounded-xl md:max-w-[445px] h-[276px] space-y-6">
       <div className="flex items-center space-x-6 overflow-hidden">
@@ -57,8 +71,10 @@ const QuickTransfer: React.FC = () => {
         <div className="flex items-center bg-gray-100 rounded-full max-w-[265px] w-full">
           <input
             type="text"
+            placeholder="$0"
             value={amount}
-            onChange={(e) => setAmount(e.target.value)}
+            prefix="$"
+            onChange={handleChange}
             className="w-[50%] flex-grow bg-transparent text-gray-700 text-[14px] font-semibold text-center focus:outline-none"
           />
 

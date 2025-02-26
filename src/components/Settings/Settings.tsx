@@ -1,47 +1,81 @@
 import { EditIcon } from '../Icons'
 import { Profile } from '../../assets'
-import React, { useState } from 'react'
 import { FormValues } from '../../../types'
 import InputField from '../InputField/InputField'
+import React, { useState, useEffect } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { profileFields } from '../../utils/constants'
 import { validationSchema } from '../../utils/schema'
+import { useAppDispatch, useAppSelector } from '../../redux/hooks'
+import { setUserProfile } from '../../redux/reducer/applicationSlice'
 
 const SettingsPage: React.FC = () => {
+  const dispatch = useAppDispatch()
   const [activeTab, setActiveTab] = useState('Edit Profile')
-  const [selectedImage, setSelectedImage] = useState<File | null>(null)
-  const [preview, setPreview] = useState<string>(Profile)
+  const { userProfile } = useAppSelector((state) => state.userReducer)
+  const [preview, setPreview] = useState<string>(userProfile?.image || Profile)
 
   const {
     control,
     handleSubmit,
     formState: { errors }
   } = useForm<FormValues>({
-    mode: 'onChange',
-    reValidateMode: 'onChange',
-    resolver: yupResolver(validationSchema)
+    resolver: yupResolver(validationSchema),
+    defaultValues: {
+      image: userProfile?.image,
+      city: userProfile?.city || '',
+      email: userProfile?.email || '',
+      country: userProfile?.country || '',
+      yourName: userProfile?.yourName || '',
+      userName: userProfile?.userName || '',
+      password: userProfile?.password || '',
+      postalCode: userProfile?.postalCode || '',
+      dateOfBirth: userProfile?.dateOfBirth || '',
+      presentAddress: userProfile?.presentAddress || '',
+      permanentAddress: userProfile?.permanentAddress || ''
+    }
   })
+  const convertToBase64 = (file: File) => {
+    return new Promise<string>((resolve, reject) => {
+      const reader = new FileReader()
+      reader.readAsDataURL(file)
+      reader.onload = () => resolve(reader.result as string)
+      reader.onerror = (error) => reject(error)
+    })
+  }
 
-  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageChange = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const file = event.target.files?.[0]
     if (file) {
-      setSelectedImage(file)
-      setPreview(URL.createObjectURL(file))
+      try {
+        const base64Image = await convertToBase64(file)
+        setPreview(base64Image)
+        dispatch(setUserProfile({ ...userProfile, image: base64Image }))
+      } catch (error) {
+        console.error('Error converting image:', error)
+      }
     }
   }
 
-  const onSubmit = () => {
-    if (selectedImage) {
-      const formData = new FormData()
-      formData.append('profilePicture', selectedImage)
+  useEffect(() => {
+    if (userProfile?.image) {
+      setPreview(userProfile.image)
+    } else {
+      setPreview(Profile)
     }
+  }, [userProfile])
+
+  const onSubmit = (data: FormValues) => {
+    dispatch(setUserProfile({ ...data, image: preview }))
   }
 
   return (
     <div className="max-w-[1110px] mx-auto overflow-hidden pt-3">
       <div className="bg-white p-[30px] rounded-[25px] shadow-md mt-6">
-        <div className="flex border-b border-border-dark  mt-4 mb-10 relative">
+        <div className="flex border-b border-border-dark mt-4 mb-10 relative">
           {['Edit Profile', 'Preferences', 'Security'].map((tab) => (
             <button
               key={tab}
@@ -92,8 +126,8 @@ const SettingsPage: React.FC = () => {
                           <InputField
                             type={value.type}
                             label={value.label}
+                            inputValue={field.value || ''}
                             placeholder={value.placeholder}
-                            defaultValue={value.defaultValue}
                             {...field}
                           />
                         )}

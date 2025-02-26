@@ -1,14 +1,18 @@
+'use client'
 import { NotificationIcon, SettingsIcon } from '../Icons'
 import { IconButton } from '../IconButton/IconButton'
 import SearchBar from '../Searchbar/Searchbar'
 import { Profile } from '../../assets'
 import { FiMenu } from 'react-icons/fi'
+import { useAppSelector } from '../../redux/hooks'
 
 interface HeaderProps {
   setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const PrimaryHeader = ({ setIsSidebarOpen }: HeaderProps) => {
+  const { userProfile } = useAppSelector((state) => state.userReducer)
+
   return (
     <>
       <header className="w-full flex items-center justify-between px-6 py-4 bg-transparent lg:bg-white lg:border-b border-gray-200 relative">
@@ -31,7 +35,7 @@ const PrimaryHeader = ({ setIsSidebarOpen }: HeaderProps) => {
           </div>
 
           <img
-            src={Profile}
+            src={userProfile?.image || Profile}
             alt="Profile"
             className="w-10 h-10 rounded-full border border-gray-300"
           />
