@@ -17,9 +17,7 @@ const Layout: React.FC = () => {
         <Sidebar />
       </div>
 
-      <div
-        className={`bg-light-bg flex-1 flex flex-col transition-all duration-300 ${isSidebarOpen ? 'ml-0' : 'ml-0'}`}
-      >
+      <div className="bg-light-bg flex-1 flex flex-col transition-all duration-300">
         <div className="relative">
           <button
             className="md:hidden absolute top-5 left-5 z-50 bg-white shadow-md p-2 rounded-md"
@@ -33,7 +31,7 @@ const Layout: React.FC = () => {
           </button>
           <PrimaryHeader />
         </div>
-        <main className="p-2 flex-1 overflow-y-auto w-full">
+        <main className="flex-1 overflow-y-auto w-full p-6">
           <App />
         </main>
       </div>

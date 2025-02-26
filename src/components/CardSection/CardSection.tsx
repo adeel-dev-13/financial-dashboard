@@ -8,7 +8,7 @@ const CardSection = () => {
         <h2 className="font-bold text-lg text-primary">My Cards</h2>
         <p className="text-primary cursor-pointer font-medium">See All</p>
       </div>
-      <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-between gap-4 mt-4">
+      <div className="flex flex-wrap justify-center md:justify-between gap-4 mt-4">
         {cardsData.map((item, index) => (
           <Card
             key={item.id}
