@@ -1,49 +1,46 @@
-// src/components/Dashboard/BalanceHistory/BalanceHistory.tsx
-import React from 'react'
+import { balanceHistoryData } from "../../utils/constants";
+import React from "react";
 import {
-  LineChart,
-  Line,
+  Area,
   XAxis,
   YAxis,
   Tooltip,
+  AreaChart,
   CartesianGrid,
-  ResponsiveContainer
-} from 'recharts'
+  ResponsiveContainer,
+} from "recharts";
 
-interface HistoryData {
-  month: string
-  balance: number
-}
-
-const data: HistoryData[] = [
-  { month: 'Jan', balance: 3000 },
-  { month: 'Feb', balance: 4200 },
-  { month: 'Mar', balance: 5000 },
-  { month: 'Apr', balance: 4600 },
-  { month: 'May', balance: 5800 },
-  { month: 'Jun', balance: 6000 }
-]
 
 const BalanceHistory: React.FC = () => {
   return (
-    <div className="balance-history">
-      <h2>Balance History</h2>
-      <ResponsiveContainer width="100%" height={200}>
-        <LineChart data={data}>
-          <XAxis dataKey="month" />
-          <YAxis />
-          <CartesianGrid stroke="#ccc" />
+    <div className="w-full h-[276px] bg-white rounded-2xl p-4 md:max-w-[635px]" >
+  
+      <ResponsiveContainer width="100%" height={250} className="md:max-w-[635px]">
+        <AreaChart className="mt-2.5 mr-2.5" data={balanceHistoryData}>
+          <defs>
+            <linearGradient id="colorBalance" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="5%" stopColor="#0047FF" stopOpacity={0.5} />
+              <stop offset="95%" stopColor="#0047FF" stopOpacity={0} />
+            </linearGradient>
+          </defs>
+
+          <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+          <XAxis dataKey="month" tick={{ fill: "#9CA3AF" }} />
+          <YAxis tick={{ fill: "#9CA3AF" }} domain={[0, 800]} />
           <Tooltip />
-          <Line
+
+          <Area
             type="monotone"
             dataKey="balance"
-            stroke="#82ca9d"
-            strokeWidth={2}
+            stroke="#0047FF"
+            strokeWidth={3}
+            fill="url(#colorBalance)"
+            dot={false}
           />
-        </LineChart>
+        </AreaChart>
       </ResponsiveContainer>
     </div>
-  )
-}
+  );
+};
 
-export default BalanceHistory
+export default BalanceHistory;
