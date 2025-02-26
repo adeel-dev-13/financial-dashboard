@@ -23,7 +23,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ Icon, text, active }) => {
 
       <span
         className={`text-sm font-medium ${
-          active ? 'text-light-black' : 'text-disabled]'
+          active ? 'text-light-black' : 'text-inactive'
         }`}
       >
         {text}

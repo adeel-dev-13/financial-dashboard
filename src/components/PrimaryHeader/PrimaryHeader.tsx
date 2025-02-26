@@ -1,51 +1,48 @@
-import { NotificationIcon, SettingsIcon } from '../Icons';
-import { IconButton } from '../IconButton/IconButton';
-import SearchBar from '../Searchbar/Searchbar';
-import { Profile } from '../../assets';
-import { FiMenu } from 'react-icons/fi';
-import { useState } from 'react';
+import { NotificationIcon, SettingsIcon } from '../Icons'
+import { IconButton } from '../IconButton/IconButton'
+import SearchBar from '../Searchbar/Searchbar'
+import { Profile } from '../../assets'
+import { FiMenu } from 'react-icons/fi'
 
-const PrimaryHeader = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+interface HeaderProps {
+  setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
 
+const PrimaryHeader = ({ setIsSidebarOpen }: HeaderProps) => {
   return (
-    <header className="w-full flex items-center justify-between px-6 py-4 bg-white border-b border-gray-200">
-      <div className="flex items-center gap-4">
-        <button 
-          className="lg:hidden text-gray-700 text-2xl" 
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+    <>
+      <header className="w-full flex items-center justify-between px-6 py-4 bg-transparent lg:bg-white lg:border-b border-gray-200 relative">
+        <button
+          className="text-gray-700 z-0 text-2xl lg:hidden"
+          onClick={() => setIsSidebarOpen(true)}
         >
           <FiMenu />
         </button>
-        <div className="text-xl font-bold text-gray-700 hidden lg:block">Overview</div>
+
+        <div className="absolute left-1/2 transform -translate-x-1/2 text-xl font-bold text-gray-900 lg:static lg:translate-x-0">
+          Overview
+        </div>
+
+        <div className="flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-2">
+            <SearchBar />
+            <IconButton icon={<SettingsIcon />} />
+            <IconButton icon={<NotificationIcon />} />
+          </div>
+
+          <img
+            src={Profile}
+            alt="Profile"
+            className="w-10 h-10 rounded-full border border-gray-300"
+          />
+        </div>
+      </header>
+
+      <div className="px-6 py-2 flex justify-center lg:hidden">
+        <SearchBar />
       </div>
+    </>
+  )
+}
 
-      <div className="flex items-center gap-4">
-        <div className="hidden sm:block">
-          <SearchBar />
-        </div>
-
-        <div className="hidden md:flex items-center gap-2">
-          <IconButton icon={<SettingsIcon />} />
-          <IconButton icon={<NotificationIcon />} />
-        </div>
-
-        <img
-          src={Profile}
-          alt="Profile"
-          className="w-10 h-10 rounded-full shadow-md border border-gray-300"
-        />
-      </div>
-
-      {isMenuOpen && (
-        <div className="absolute top-16 left-0 w-full bg-white shadow-lg z-50 flex flex-col items-center py-4 space-y-3">
-          <SearchBar />
-          <IconButton icon={<SettingsIcon />} />
-          <IconButton icon={<NotificationIcon />} />
-        </div>
-      )}
-    </header>
-  );
-};
-
-export default PrimaryHeader;
+export default PrimaryHeader
