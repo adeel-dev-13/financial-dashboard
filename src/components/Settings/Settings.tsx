@@ -41,11 +41,11 @@ const SettingsPage: React.FC = () => {
   return (
     <div className="max-w-[1110px] mx-auto overflow-hidden pt-3">
       <div className="bg-white p-[30px] rounded-[25px] shadow-md mt-6">
-        <div className="flex border-b mt-4 mb-10 relative">
+        <div className="flex border-b border-border-dark  mt-4 mb-10 relative">
           {['Edit Profile', 'Preferences', 'Security'].map((tab) => (
             <button
               key={tab}
-              className={`p-0 md:py-2 md:px-4 mx-4 font-[500] text-[16px] transition-all relative ${
+              className={`p-0 md:py-2 md:px-4 mx-4 font-[500] text-[13px] transition-all relative ${
                 activeTab === tab
                   ? 'text-light-black rounded-b-xl pb-2'
                   : 'text-grey'
