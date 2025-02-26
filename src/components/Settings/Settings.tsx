@@ -3,7 +3,7 @@ import React from 'react'
 const Settings: React.FC = () => {
   return (
     <div>
-      <h1>Settings Page</h1>
+      <h1>Settings Pagee</h1>
       {/* Add your settings UI here */}
     </div>
   )
