@@ -1,8 +1,11 @@
+import { IconType } from 'react-icons'
+
 export interface CardType {
   id: number
   cardNumber: string
   balance: number
   holderName: string
+  validity: string
 }
 
 export interface TransactionType {
@@ -11,4 +14,19 @@ export interface TransactionType {
   amount: number
   date: string
   type: 'credit' | 'debit'
+}
+
+export interface TransactionItemType {
+  id: number
+  name: string
+  date: string
+  amount: number
+  Icon: IconType
+  type: 'income' | 'expense'
+}
+
+export interface User {
+  name: string
+  role: string
+  image: string
 }

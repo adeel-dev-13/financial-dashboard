@@ -1,54 +1,62 @@
-// src/components/Dashboard/WeeklyActivity/WeeklyActivityChart.tsx
 import React from 'react'
+import { expenseData } from '../../utils/constants'
 import {
-  AreaChart,
-  Area,
+  Bar,
   XAxis,
   YAxis,
-  Tooltip,
+  Legend,
+  BarChart,
   CartesianGrid,
-  ResponsiveContainer
+  ResponsiveContainer,
 } from 'recharts'
-
-interface ChartData {
-  name: string
-  balance: number
-}
-
-const data: ChartData[] = [
-  { name: 'Mon', balance: 500 },
-  { name: 'Tue', balance: 1000 },
-  { name: 'Wed', balance: 700 },
-  { name: 'Thu', balance: 1200 },
-  { name: 'Fri', balance: 900 },
-  { name: 'Sat', balance: 1500 },
-  { name: 'Sun', balance: 1300 }
-]
 
 const WeeklyActivityChart: React.FC = () => {
   return (
-    <div className="weekly-activity">
-      <h2>Weekly Activity</h2>
-      <ResponsiveContainer width="100%" height={200}>
-        <AreaChart data={data}>
-          <defs>
-            <linearGradient id="colorBalance" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
-            </linearGradient>
-          </defs>
-          <XAxis dataKey="name" />
-          <YAxis />
-          <CartesianGrid strokeDasharray="3 3" />
-          <Tooltip />
-          <Area
-            type="monotone"
-            dataKey="balance"
-            stroke="#8884d8"
-            fillOpacity={1}
-            fill="url(#colorBalance)"
+    <div className="bg-white rounded-[25px] w-full h-[322px]">
+      <ResponsiveContainer width="100%" height={300}>
+        <BarChart
+          barGap={10}
+          data={expenseData}
+          margin={{ top: 30, right: 30, left: 20, bottom: 10 }}
+        >
+          <CartesianGrid stroke="#E5E7EB" strokeWidth={1} vertical={false} />
+
+          <YAxis
+            domain={[0, 500]}
+            tick={{ fill: '#718EBF', fontSize: 13, fontWeight: 400 }}
+            tickCount={6}
+            axisLine={false}
+            tickLine={false}
           />
-        </AreaChart>
+          <XAxis
+            dataKey="day"
+            axisLine={false}
+            tickLine={false}
+            tick={{ dy: 10, fill: '#718EBF', fontSize: 13, fontWeight: 400 }}
+          />
+          <Legend
+            payload={[
+              {
+                value: 'Deposit',
+                type: 'circle',
+                id: 'deposit',
+                color: '#396AFF'
+              },
+              {
+                value: 'Withdraw',
+                type: 'circle',
+                id: 'withdraw',
+                color: 'black'
+              }
+            ]}
+            verticalAlign="top"
+            align="right"
+            iconType="circle"
+            wrapperStyle={{ top: 10, right: 0, marginBottom: 20 }}
+          />
+          <Bar dataKey="withdraw" fill="#000" barSize={10} radius={4} />
+          <Bar dataKey="deposit" fill="#396AFF" barSize={10} radius={4} />
+        </BarChart>
       </ResponsiveContainer>
     </div>
   )

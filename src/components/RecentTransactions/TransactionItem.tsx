@@ -1,24 +1,25 @@
-// src/components/Dashboard/RecentTransactions/TransactionItem.tsx
-import React from 'react'
-import { TransactionType } from '../../../types'
+import { TransactionItemType } from '../../../types'
 
 interface TransactionItemProps {
-  transaction: TransactionType
+  transaction: TransactionItemType
 }
 
-const TransactionItem: React.FC<TransactionItemProps> = ({ transaction }) => {
-  const { title, amount, date, type } = transaction
-  const amountColor = type === 'credit' ? 'green' : 'red'
-
+export const TransactionItem = ({ transaction }: TransactionItemProps) => {
   return (
-    <li className="transaction-item">
-      <div className="transaction-title">{title}</div>
-      <div className="transaction-date">{date}</div>
-      <div className="transaction-amount" style={{ color: amountColor }}>
-        {type === 'credit' ? '+' : '-'}${amount.toLocaleString()}
+    <div className="flex items-center space-x-3">
+      <transaction.Icon />
+      <div className="flex justify-between w-full items-center">
+        <div>
+          <p className="font-medium">{transaction.name}</p>
+          <p className="text-sm text-gray-500">{transaction.date}</p>
+        </div>
+        <p
+          className={`font-semibold ${transaction.type === 'income' ? 'text-light-green' : 'text-red'}`}
+        >
+          {transaction.type === 'income' ? '+' : '-'}$
+          {Math.abs(transaction.amount)}
+        </p>
       </div>
-    </li>
+    </div>
   )
 }
-
-export default TransactionItem

@@ -1,72 +1,43 @@
-// src/components/Dashboard/Dashboard.tsx
 import React from 'react'
-import { CardType, TransactionType } from '../../../types'
-import BalanceHistory from '../BalanceHistory/BalanceHistory'
 import CardSection from '../CardSection/CardSection'
-import ExpenseStatistics from '../ExpenseStatistics/ExpenseStatistics'
+import MainHeading from '../MainHeading/MainHeading'
 import QuickTransfer from '../QuickTransfer/QuickTransfer'
-import RecentTransactions from '../RecentTransactions/RecentTransactions'
+import BalanceHistory from '../BalanceHistory/BalanceHistory'
+import ExpenseStatistics from '../ExpenseStatistics/ExpenseStatistics'
 import WeeklyActivityChart from '../WeeklyActivity/WeeklyActivityChart'
+import RecentTransactions from '../RecentTransactions/RecentTransactions'
 
 const Dashboard: React.FC = () => {
-  // Mock data (replace with real API or global store)
-  const cardsData: CardType[] = [
-    {
-      id: 1,
-      cardNumber: '**** **** **** 1234',
-      balance: 5576,
-      holderName: 'John Doe'
-    },
-    {
-      id: 2,
-      cardNumber: '**** **** **** 4321',
-      balance: 3420,
-      holderName: 'Jane Doe'
-    }
-  ]
-
-  const transactionsData: TransactionType[] = [
-    {
-      id: 101,
-      title: 'Deposit from PayPal',
-      amount: 2500,
-      date: 'Jan 25, 2025',
-      type: 'credit'
-    },
-    {
-      id: 102,
-      title: 'Payment to Amazon',
-      amount: 850,
-      date: 'Jan 22, 2025',
-      type: 'debit'
-    },
-    {
-      id: 103,
-      title: 'Salary from Company X',
-      amount: 5000,
-      date: 'Jan 20, 2025',
-      type: 'credit'
-    }
-  ]
-
   return (
-    <div className="dashboard-container">
-      {/* Top Row */}
-      <div className="top-section">
-        <CardSection cards={cardsData} />
-        <RecentTransactions transactions={transactionsData} />
+    <div className="max-w-[1110px] mx-auto overflow-hidden pt-3">
+      <div className="flex flex-col xl:flex-row justify-between items-start w-full gap-6">
+        <div className="w-full xl:w-[730px] flex flex-col">
+          <CardSection />
+        </div>
+        <div className="w-full max-w-[350px] flex flex-col mx-auto">
+          <RecentTransactions />
+        </div>
+      </div>
+      <div className="flex flex-col xl:flex-row w-full justify-between gap-6 mt-6">
+        <div className="w-full xl:w-[730px]">
+          <MainHeading title="Weekly Activity" />
+          <WeeklyActivityChart />
+        </div>
+        <div className="w-full max-w-[350px] mx-auto">
+          <MainHeading title="Expense Statistics" />
+          <ExpenseStatistics />
+        </div>
       </div>
 
-      {/* Middle Row */}
-      <div className="middle-section">
-        <WeeklyActivityChart />
-        <ExpenseStatistics />
-      </div>
-
-      {/* Bottom Row */}
-      <div className="bottom-section">
-        <QuickTransfer />
-        <BalanceHistory />
+      <div className="flex flex-col xl:flex-row justify-between w-full mt-6">
+        <div className="">
+          <MainHeading title="Quick Transfer" />
+          <QuickTransfer />
+        </div>
+        <div className="w-full xl:w-[635px]">
+          <MainHeading title="Balance History" />
+          <BalanceHistory />
+        </div>
       </div>
     </div>
   )

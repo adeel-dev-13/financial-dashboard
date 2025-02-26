@@ -1,25 +1,18 @@
-// src/components/Dashboard/RecentTransactions/RecentTransactions.tsx
-import React from 'react'
-import TransactionItem from './TransactionItem'
-import { TransactionType } from '../../../types'
+import { transactions } from '../../utils/constants'
+import { TransactionItem } from './TransactionItem'
 
-interface RecentTransactionsProps {
-  transactions: TransactionType[]
-}
-
-const RecentTransactions: React.FC<RecentTransactionsProps> = ({
-  transactions
-}) => {
+export default function RecentTransactions() {
   return (
-    <div className="recent-transactions">
-      <h2>Recent Transactions</h2>
-      <ul>
-        {transactions.map((tx) => (
-          <TransactionItem key={tx.id} transaction={tx} />
+    <div className="rounded-xl w-full md:max-w-[350px]">
+      <h2 className="text-xl font-semibold mb-4 text-primary">
+        Recent Transactions
+      </h2>
+
+      <div className="flex flex-col bg-white rounded-xl w-full p-5 space-y-3 md:max-w-[350px]">
+        {transactions.map((transaction) => (
+          <TransactionItem key={transaction.id} transaction={transaction} />
         ))}
-      </ul>
+      </div>
     </div>
   )
 }
-
-export default RecentTransactions
