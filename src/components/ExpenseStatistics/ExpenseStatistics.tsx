@@ -20,7 +20,7 @@ ChartJS.register(
 
 const PolarChart: React.FC = () => {
   return (
-    <div className="w-full pt-12  bg-white max-w-[350px] h-[322px] rounded-[25px] flex items-center justify-center">
+    <div className="w-full pt-12 mx-auto  bg-white max-w-[350px] h-[322px] rounded-[25px] flex items-center justify-center">
       <PolarArea data={expenseChartdata} options={options} />
     </div>
   )

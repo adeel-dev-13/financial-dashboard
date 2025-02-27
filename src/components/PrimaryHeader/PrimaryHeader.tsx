@@ -28,8 +28,8 @@ const PrimaryHeader = ({ setIsSidebarOpen }: HeaderProps) => {
         </div>
 
         <div className="flex items-center gap-4">
-          <div className="hidden lg:flex items-center gap-2">
-            <SearchBar />
+          <div className="hidden lg:flex items-center gap-6">
+            <SearchBar width="255px" />
             <IconButton icon={<SettingsIcon />} />
             <IconButton icon={<NotificationIcon />} />
           </div>
@@ -37,13 +37,13 @@ const PrimaryHeader = ({ setIsSidebarOpen }: HeaderProps) => {
           <img
             src={userProfile?.image || Profile}
             alt="Profile"
-            className="w-10 h-10 rounded-full border border-gray-300"
+            className="w-[60px] h-[60px] rounded-full border border-gray-300"
           />
         </div>
       </header>
 
-      <div className="px-6 py-2 flex justify-center lg:hidden">
-        <SearchBar />
+      <div className="w-full px-6 py-2 flex justify-center lg:hidden">
+        <SearchBar width="325px" />
       </div>
     </>
   )

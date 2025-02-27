@@ -12,11 +12,11 @@ import {
 
 const BalanceHistory: React.FC = () => {
   return (
-    <div className="w-full h-[276px] bg-white rounded-2xl p-4 md:max-w-[635px]">
+    <div className="w-full h-[276px] bg-white rounded-2xl p-4 xl:max-w-[635px]">
       <ResponsiveContainer
         width="100%"
         height={250}
-        className="md:max-w-[635px]"
+        className="xl:max-w-[635px]"
       >
         <AreaChart className="mt-2.5 mr-2.5" data={balanceHistoryData}>
           <defs>

@@ -16,17 +16,21 @@ const CardSection = () => {
           See All
         </p>
       </div>
-      <div className="flex flex-wrap justify-center md:justify-between gap-4 mt-4">
-        {cardsData.slice(0, 2).map((item, index) => (
-          <Card
-            key={item.id}
-            balance={item.balance}
-            isPrimary={index === 0}
-            validThru={item.validity}
-            cardNumber={item.cardNumber}
-            cardHolder={item.holderName}
-          />
-        ))}
+      <div className="relative overflow-x-auto scrollbar-hide">
+        <div className="flex gap-7 mt-4 md:justify-between w-[350px] md:h-[100%] h-[180px]">
+          {cardsData.slice(0, 2).map((item, index) => (
+            <div className="flex-shrink-0 w-265px md:w-[350px]">
+              <Card
+                key={item.id}
+                balance={item.balance}
+                isPrimary={index === 0}
+                validThru={item.validity}
+                cardNumber={item.cardNumber}
+                cardHolder={item.holderName}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )

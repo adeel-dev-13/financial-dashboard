@@ -1,4 +1,5 @@
 import React from 'react'
+import { useMediaQuery } from 'react-responsive'
 import { expenseData } from '../../utils/constants'
 import {
   Bar,
@@ -7,10 +8,11 @@ import {
   Legend,
   BarChart,
   CartesianGrid,
-  ResponsiveContainer,
+  ResponsiveContainer
 } from 'recharts'
 
 const WeeklyActivityChart: React.FC = () => {
+  const isSmallScreen = useMediaQuery({ maxWidth: 1280 })
   return (
     <div className="bg-white rounded-[25px] w-full h-[322px]">
       <ResponsiveContainer width="100%" height={300}>
@@ -54,8 +56,18 @@ const WeeklyActivityChart: React.FC = () => {
             iconType="circle"
             wrapperStyle={{ top: 10, right: 0, marginBottom: 20 }}
           />
-          <Bar dataKey="withdraw" fill="#000" barSize={10} radius={4} />
-          <Bar dataKey="deposit" fill="#396AFF" barSize={10} radius={4} />
+          <Bar
+            dataKey="withdraw"
+            fill="#000"
+            barSize={isSmallScreen ? 7 : 15}
+            radius={4}
+          />
+          <Bar
+            dataKey="deposit"
+            fill="#396AFF"
+            barSize={isSmallScreen ? 7 : 15}
+            radius={4}
+          />
         </BarChart>
       </ResponsiveContainer>
     </div>
