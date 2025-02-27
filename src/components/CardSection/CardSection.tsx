@@ -7,7 +7,7 @@ const CardSection = () => {
 
   return (
     <div className="w-full">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center md:mr-0 mr-4">
         <h2 className="font-bold text-lg text-primary">My Cards</h2>
         <p
           className="text-primary cursor-pointer font-medium hover:text-blue hover:underline hover:scale-105 transition-transform duration-200"

@@ -7,7 +7,7 @@ const Layout: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen overflow-hidden px-[18px]">
       <div
         className={`z-50 fixed md:relative top-0 left-0 w-64 bg-white min-h-[250px] h-screen flex flex-col border-r border-gray-200 transition-transform duration-300
           ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}
@@ -18,7 +18,7 @@ const Layout: React.FC = () => {
       <div className="md:bg-light-bg bg-white flex-1 flex flex-col transition-all duration-300">
         <PrimaryHeader setIsSidebarOpen={setIsSidebarOpen} />
 
-        <main className="flex-1 overflow-y-auto w-full px-8">
+        <main className="flex-1 overflow-y-auto w-full">
           <App />
         </main>
       </div>

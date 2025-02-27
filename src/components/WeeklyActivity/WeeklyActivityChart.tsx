@@ -54,7 +54,11 @@ const WeeklyActivityChart: React.FC = () => {
             verticalAlign="top"
             align="right"
             iconType="circle"
-            wrapperStyle={{ top: 10, right: 0, marginBottom: 20 }}
+            wrapperStyle={{
+              top: 10,
+              right: 18,
+              marginBottom: 20
+            }}
           />
           <Bar
             dataKey="withdraw"

@@ -1,7 +1,7 @@
 const SearchBar = ({ width }: { width: string }) => {
   return (
     <div
-      className={`flex w-full items-center space-x-2 bg-gray-100 px-4 py-2 rounded-full max-w-[${width}]`}
+      className={`flex w-full items-center bg-gray-100 px-4 py-2 rounded-full max-w-[${width}]`}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

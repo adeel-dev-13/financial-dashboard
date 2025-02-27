@@ -3,7 +3,7 @@ import { TransactionItem } from './TransactionItem'
 
 export default function RecentTransactions() {
   return (
-    <div className="rounded-xl w-full md:max-w-[350px]">
+    <div className="rounded-[25px] w-full md:max-w-[350px]">
       <h2 className="text-xl font-semibold mb-4 text-primary">
         Recent Transactions
       </h2>

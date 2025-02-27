@@ -23,7 +23,7 @@ const QuickTransfer: React.FC = () => {
   }
 
   return (
-    <div className="bg-white w-full max-w-[325px] md:max-w-[445px]  md:px-6 py-6 rounded-xl h-[276px] space-y-6">
+    <div className="bg-white w-full max-w-[325px] min-w-[100%] md:min-w-[445px]  md:px-6 py-6 rounded-[25px] h-[276px] space-y-6">
       <div className="flex items-center space-x-2 md:space-x-6 overflow-hidden w-full">
         {users.map((user) => (
           <div
