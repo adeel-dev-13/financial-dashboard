@@ -79,6 +79,7 @@ const QuickTransfer: React.FC = () => {
           />
 
           <button
+            aria-label="Send payment"
             onClick={() => setAmount('')}
             className="w-[50%] cursor-pointer bg-black text-white flex items-center justify-center space-x-2 px-6 py-3 rounded-full 
              hover:bg-gray-900 transition-all duration-300 ease-in-out group"
