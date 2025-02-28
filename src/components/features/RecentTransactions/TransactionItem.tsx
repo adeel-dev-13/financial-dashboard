@@ -6,7 +6,7 @@ interface TransactionItemProps {
 
 export const TransactionItem = ({ transaction }: TransactionItemProps) => {
   return (
-    <div className="flex items-center space-x-3">
+    <div className="flex transition-all items-center space-x-3 cursor-pointer hover:px-2 hover:rounded-[8px] hover:bg-gray-100 hover:shadow-md hover:scale-[1.02]">
       <transaction.Icon />
       <div className="flex justify-between w-full items-center">
         <div>
