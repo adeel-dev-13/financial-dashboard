@@ -62,3 +62,5 @@ export type FormValues = {
   country: string
   image?: string
 }
+
+export type SnackbarType = 'success' | 'error' | 'warning' | 'info'

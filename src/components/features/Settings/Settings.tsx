@@ -1,20 +1,31 @@
 import { Profile } from '../../../assets'
 import { EditIcon } from '../../common/Icons'
-import { FormValues } from '../../../utils/types'
 import React, { useState, useEffect } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
+import Snackbar from '../../common/snackbar/snackbar'
 import { profileFields } from '../../../utils/constants'
 import { validationSchema } from '../../../utils/schema'
 import InputField from '../../common/InputField/InputField'
+import { FormValues, SnackbarType } from '../../../utils/types'
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
 import { setUserProfile } from '../../../redux/reducer/applicationSlice'
 
 const SettingsPage: React.FC = () => {
   const dispatch = useAppDispatch()
+  const [snackbar, setSnackbar] = useState<{
+    message: string
+    type: SnackbarType
+  } | null>(null)
+
   const [activeTab, setActiveTab] = useState('Edit Profile')
   const { userProfile } = useAppSelector((state) => state.userReducer)
   const [preview, setPreview] = useState<string>(userProfile?.image || Profile)
+
+  const showSnackbar = (message: string, type: SnackbarType) => {
+    setSnackbar({ message, type })
+    setTimeout(() => setSnackbar(null), 3000)
+  }
 
   const {
     control,
@@ -70,6 +81,7 @@ const SettingsPage: React.FC = () => {
 
   const onSubmit = (data: FormValues) => {
     dispatch(setUserProfile({ ...data, image: preview }))
+    showSnackbar('Profile edited successfully!', 'success')
   }
 
   return (
@@ -159,6 +171,9 @@ const SettingsPage: React.FC = () => {
           <div className="mt-6 text-gray-500 text-center">
             <p>{activeTab} settings will be added here.</p>
           </div>
+        )}
+        {snackbar && (
+          <Snackbar message={snackbar.message} type={snackbar.type} />
         )}
       </div>
     </div>
