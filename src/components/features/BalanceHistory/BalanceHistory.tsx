@@ -1,4 +1,4 @@
-import { balanceHistoryData } from '../../utils/constants'
+import { balanceHistoryData } from '../../../utils/constants'
 import React from 'react'
 import {
   Area,

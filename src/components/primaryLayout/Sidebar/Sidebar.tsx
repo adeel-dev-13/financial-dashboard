@@ -1,9 +1,9 @@
 import React from 'react'
-import { Logo } from '../Icons'
+import { Logo } from '../../common/Icons'
 import { IoClose } from 'react-icons/io5'
 import { useLocation } from 'react-router-dom'
-import { SideBarItems } from '../../utils/constants'
-import SidebarItem from '../SidebarItem/SidebarItem'
+import { SideBarItems } from '../../../utils/constants'
+import SidebarItem from '../../common/SidebarItem/SidebarItem'
 
 interface SidebarProps {
   isOpen: boolean

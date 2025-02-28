@@ -1,6 +1,6 @@
 import React from 'react'
 import CardSection from '../CardSection/CardSection'
-import MainHeading from '../MainHeading/MainHeading'
+import MainHeading from '../../common/MainHeading/MainHeading'
 import QuickTransfer from '../QuickTransfer/QuickTransfer'
 import BalanceHistory from '../BalanceHistory/BalanceHistory'
 import ExpenseStatistics from '../ExpenseStatistics/ExpenseStatistics'

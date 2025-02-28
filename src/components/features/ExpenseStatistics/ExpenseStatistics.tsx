@@ -1,7 +1,7 @@
 import React from 'react'
 import { PolarArea } from 'react-chartjs-2'
 import ChartDataLabels from 'chartjs-plugin-datalabels'
-import { expenseChartdata, options } from '../../utils/constants'
+import { expenseChartdata, options } from '../../../utils/constants'
 import {
   Legend,
   Tooltip,

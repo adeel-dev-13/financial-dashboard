@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from '../CardSection/Card'
 import { useNavigate } from 'react-router-dom'
-import { cardsData } from '../../utils/constants'
+import { cardsData } from '../../../utils/constants'
 
 const CardsPage: React.FC = () => {
   const navigate = useNavigate()

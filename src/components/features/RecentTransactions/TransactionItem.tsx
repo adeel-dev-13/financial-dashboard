@@ -1,4 +1,4 @@
-import { TransactionItemType } from '../../../types'
+import { TransactionItemType } from '../../../utils/types'
 
 interface TransactionItemProps {
   transaction: TransactionItemType

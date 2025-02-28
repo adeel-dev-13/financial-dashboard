@@ -11,7 +11,7 @@ import {
   Privileges,
   ServiceIcon,
   TransactionIcon
-} from '../components/Icons'
+} from '../components/common/Icons'
 
 export const SideBarItems = [
   {

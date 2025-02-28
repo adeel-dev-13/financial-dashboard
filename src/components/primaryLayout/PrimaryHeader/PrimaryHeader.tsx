@@ -1,10 +1,10 @@
 'use client'
-import { NotificationIcon, SettingsIcon } from '../Icons'
-import { IconButton } from '../IconButton/IconButton'
-import { useAppSelector } from '../../redux/hooks'
+import { NotificationIcon, SettingsIcon } from '../../common/Icons'
+import { IconButton } from '../../common/IconButton/IconButton'
+import { useAppSelector } from '../../../redux/hooks'
 import { useMediaQuery } from 'react-responsive'
-import SearchBar from '../Searchbar/Searchbar'
-import { Profile } from '../../assets'
+import SearchBar from '../../common/Searchbar/Searchbar'
+import { Profile } from '../../../assets'
 import { FiMenu } from 'react-icons/fi'
 
 interface HeaderProps {

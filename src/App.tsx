@@ -1,8 +1,8 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Settings from './components/Settings/Settings'
-import Dashboard from './components/dashboard/Dashboard'
-import CardsPage from './components/CardsPage/CardsPage'
+import Settings from './components/features/Settings/Settings'
+import Dashboard from './components/features/dashboard/Dashboard'
+import CardsPage from './components/features/CardsPage/CardsPage'
 
 const App: React.FC = () => {
   return (

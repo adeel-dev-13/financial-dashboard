@@ -1,6 +1,6 @@
 import Card from './Card'
 import { useNavigate } from 'react-router'
-import { cardsData } from '../../utils/constants'
+import { cardsData } from '../../../utils/constants'
 
 const CardSection = () => {
   const navigate = useNavigate()

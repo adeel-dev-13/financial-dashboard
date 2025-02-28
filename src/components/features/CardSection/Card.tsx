@@ -1,5 +1,5 @@
-import { CardProps } from '../../utils/types'
-import { Chip } from '../Icons'
+import { CardProps } from '../../../utils/types'
+import { Chip } from '../../common/Icons'
 
 const Card: React.FC<CardProps> = ({
   balance,

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useMediaQuery } from 'react-responsive'
-import { expenseData } from '../../utils/constants'
+import { expenseData } from '../../../utils/constants'
 import {
   Bar,
   XAxis,

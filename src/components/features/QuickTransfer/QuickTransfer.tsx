@@ -1,7 +1,7 @@
-import { User } from '../../../types'
 import React, { useState } from 'react'
 import { IoIosSend } from 'react-icons/io'
-import { users } from '../../utils/constants'
+import { User } from '../../../utils/types'
+import { users } from '../../../utils/constants'
 import { IoIosArrowForward } from 'react-icons/io'
 
 const QuickTransfer: React.FC = () => {
@@ -9,16 +9,16 @@ const QuickTransfer: React.FC = () => {
   const [amount, setAmount] = useState<string>('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let rawValue = e.target.value.replace(/[$,]/g, '') // Remove $ and commas
+    let rawValue = e.target.value.replace(/[$,]/g, '')
 
     if (rawValue === '' || /^\d*\.?\d*$/.test(rawValue)) {
-      setAmount(rawValue ? `$${formatNumber(rawValue)}` : '') // Format and update state
+      setAmount(rawValue ? `$${formatNumber(rawValue)}` : '')
     }
   }
   const formatNumber = (num: string) => {
     if (!num) return ''
     const [integer, decimal] = num.split('.')
-    const formattedInteger = integer.replace(/\B(?=(\d{3})+(?!\d))/g, ',') // Add commas
+    const formattedInteger = integer.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     return decimal ? `${formattedInteger}.${decimal}` : formattedInteger
   }
 

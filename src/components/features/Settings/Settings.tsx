@@ -1,14 +1,14 @@
-import { EditIcon } from '../Icons'
-import { Profile } from '../../assets'
-import { FormValues } from '../../../types'
-import InputField from '../InputField/InputField'
+import { Profile } from '../../../assets'
+import { EditIcon } from '../../common/Icons'
+import { FormValues } from '../../../utils/types'
 import React, { useState, useEffect } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { profileFields } from '../../utils/constants'
-import { validationSchema } from '../../utils/schema'
-import { useAppDispatch, useAppSelector } from '../../redux/hooks'
-import { setUserProfile } from '../../redux/reducer/applicationSlice'
+import { profileFields } from '../../../utils/constants'
+import { validationSchema } from '../../../utils/schema'
+import InputField from '../../common/InputField/InputField'
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
+import { setUserProfile } from '../../../redux/reducer/applicationSlice'
 
 const SettingsPage: React.FC = () => {
   const dispatch = useAppDispatch()

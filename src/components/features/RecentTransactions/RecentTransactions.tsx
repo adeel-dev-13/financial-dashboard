@@ -1,4 +1,4 @@
-import { transactions } from '../../utils/constants'
+import { transactions } from '../../../utils/constants'
 import { TransactionItem } from './TransactionItem'
 
 export default function RecentTransactions() {
