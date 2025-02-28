@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Logo } from '../../common/Icons'
 import { IoClose } from 'react-icons/io5'
 import { useLocation } from 'react-router-dom'
@@ -12,6 +12,12 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsSidebarOpen }) => {
   const location = useLocation()
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsSidebarOpen(false)
+    }
+  }, [location.pathname])
 
   return (
     <>
