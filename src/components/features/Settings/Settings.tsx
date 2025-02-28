@@ -85,7 +85,7 @@ const SettingsPage: React.FC = () => {
   }
 
   return (
-    <div className="max-w-[1110px] mx-auto overflow-hidden px-4 bg-light-bg">
+    <div className="max-w-[1110px] mx-auto overflow-hidden px-4 bg-light-bg h-[100%]">
       <div className="bg-white p-[12px] md:p-[30px] rounded-[25px] shadow-md mt-6">
         <div className="flex border-b border-border-dark mt-4 mb-10 relative">
           {['Edit Profile', 'Preferences', 'Security'].map((tab) => (
