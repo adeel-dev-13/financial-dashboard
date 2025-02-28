@@ -1,7 +1,7 @@
 const SearchBar = ({ width }: { width: string }) => {
   return (
     <div
-      className={`flex w-full items-center bg-gray-100 px-4 py-2 rounded-full max-w-[${width}]`}
+      className={`flex gap-2 w-full items-center bg-gray-100 px-4 py-2 rounded-full max-w-[${width}]`}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +20,7 @@ const SearchBar = ({ width }: { width: string }) => {
       <input
         type="text"
         placeholder="Search for something"
-        className={`bg-transparent outline-none text-gray-400 placeholder-placeholder w-full max-w-[${width}] mind-w-[${width}]`}
+        className={`bg-transparent outline-none text-[15px] font-[400] placeholder-placeholder w-full max-w-[${width}] mind-w-[${width}]`}
       />
     </div>
   )
