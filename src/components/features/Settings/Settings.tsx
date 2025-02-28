@@ -17,7 +17,6 @@ const SettingsPage: React.FC = () => {
     message: string
     type: SnackbarType
   } | null>(null)
-
   const [activeTab, setActiveTab] = useState('Edit Profile')
   const { userProfile } = useAppSelector((state) => state.userReducer)
   const [preview, setPreview] = useState<string>(userProfile?.image || Profile)
@@ -47,6 +46,7 @@ const SettingsPage: React.FC = () => {
       permanentAddress: userProfile?.permanentAddress || ''
     }
   })
+
   const convertToBase64 = (file: File) => {
     return new Promise<string>((resolve, reject) => {
       const reader = new FileReader()
@@ -91,12 +91,15 @@ const SettingsPage: React.FC = () => {
           {['Edit Profile', 'Preferences', 'Security'].map((tab) => (
             <button
               key={tab}
-              className={`p-0 pb-1 md:py-2 md:px-4 mx-4 font-[500] text-[13px] transition-all relative ${
+              className={`p-0 pb-1 md:py-2 md:px-4 mx-4 font-[500] text-[13px] cursor-pointer transition-all relative ${
                 activeTab === tab
                   ? 'text-light-black rounded-b-xl'
                   : 'text-grey'
               }`}
               onClick={() => setActiveTab(tab)}
+              aria-label={`Switch to ${tab} tab`}
+              aria-selected={activeTab === tab}
+              role="tab"
             >
               {tab}
               {activeTab === tab && (
@@ -112,10 +115,13 @@ const SettingsPage: React.FC = () => {
               <div className="relative ml:0 md:ml-14">
                 <img
                   src={preview}
-                  alt="Profile"
+                  alt="Profile Picture"
                   className="w-[90px] h-[90px] rounded-full min-w-[90px] object-cover"
                 />
-                <label className="absolute bottom-0 right-0 w-[30px] h-[30px] bg-light-black text-white rounded-full flex items-center justify-center cursor-pointer">
+                <label
+                  className="absolute bottom-0 right-0 w-[30px] h-[30px] bg-light-black text-white rounded-full flex items-center justify-center cursor-pointer"
+                  aria-label="Upload new profile picture"
+                >
                   <EditIcon />
                   <input
                     type="file"
@@ -156,8 +162,8 @@ const SettingsPage: React.FC = () => {
                 <div className="mt-6 text-end">
                   <button
                     type="submit"
-                    className="bg-black text-white px-6 py-2 rounded-[15px] min-w-[190px] 
-                    hover:ring-2 hover:ring-gray-600 transition-all duration-300 ease-in-out"
+                    className="bg-black cursor-pointer text-white px-6 py-2 rounded-[15px] min-w-[190px] hover:ring-2 hover:ring-gray-600 transition-all duration-300 ease-in-out"
+                    aria-label="Save profile changes"
                   >
                     Save
                   </button>
@@ -172,6 +178,7 @@ const SettingsPage: React.FC = () => {
             <p>{activeTab} settings will be added here.</p>
           </div>
         )}
+
         {snackbar && (
           <Snackbar message={snackbar.message} type={snackbar.type} />
         )}
