@@ -1,4 +1,3 @@
-import { CardType, TransactionItemType, User } from '../../types'
 import { FaCog, FaUser } from 'react-icons/fa'
 import { TiHome } from 'react-icons/ti'
 import { Profile } from '../assets'
@@ -12,6 +11,7 @@ import {
   ServiceIcon,
   TransactionIcon
 } from '../components/common/Icons'
+import { CardType, TransactionItemType, User } from './types'
 
 export const SideBarItems = [
   {
