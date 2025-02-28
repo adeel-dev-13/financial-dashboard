@@ -9,7 +9,7 @@ import RecentTransactions from '../RecentTransactions/RecentTransactions'
 
 const Dashboard: React.FC = () => {
   return (
-    <div className="max-w-[1110px] mx-auto p-0 mt-7 mb-7 xl:p-0">
+    <div className="max-w-[1110px] w-full mx-auto p-4 xl:p-0 mt-7 mb-7">
       <div className="flex flex-col xl:flex-row justify-between items-start w-full gap-6">
         <div className="w-full xl:max-w-[730px]">
           <CardSection />

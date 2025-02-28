@@ -1,6 +1,7 @@
 import React from 'react'
 import { Logo } from '../Icons'
 import { IoClose } from 'react-icons/io5'
+import { useLocation } from 'react-router-dom'
 import { SideBarItems } from '../../utils/constants'
 import SidebarItem from '../SidebarItem/SidebarItem'
 
@@ -10,6 +11,8 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsSidebarOpen }) => {
+  const location = useLocation()
+
   return (
     <>
       <div
@@ -36,8 +39,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsSidebarOpen }) => {
                 key={item.text}
                 Icon={item.icon}
                 text={item.text}
-                active={item.active}
                 href={item.path}
+                active={location.pathname === item.path}
               />
             ))}
           </ul>

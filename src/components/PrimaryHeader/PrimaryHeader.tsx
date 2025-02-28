@@ -17,7 +17,7 @@ const PrimaryHeader = ({ setIsSidebarOpen }: HeaderProps) => {
 
   return (
     <>
-      <header className="w-full flex items-center justify-between py-4 bg-transparent lg:bg-white lg:border-b border-gray-200 relative">
+      <header className="px-4 w-full flex items-center justify-between py-4 bg-transparent lg:bg-white lg:border-b border-gray-200 relative">
         <button
           className="text-gray-700 z-0 text-2xl lg:hidden"
           onClick={() => setIsSidebarOpen(true)}

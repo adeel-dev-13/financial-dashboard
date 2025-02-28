@@ -1,6 +1,7 @@
+import { CardType, TransactionItemType, User } from '../../types'
 import { FaCog, FaUser } from 'react-icons/fa'
 import { TiHome } from 'react-icons/ti'
-import { CardType, TransactionItemType, User } from '../../types'
+import { Profile } from '../assets'
 import {
   CardIcon,
   CreditcardIcon,
@@ -11,29 +12,27 @@ import {
   ServiceIcon,
   TransactionIcon
 } from '../components/Icons'
-import { Profile } from '../assets'
 
 export const SideBarItems = [
   {
     icon: TiHome,
     text: 'Dashboard',
-    active: true,
     path: '/'
   },
   {
     icon: TransactionIcon,
     text: 'Transactions',
-    path: '/'
+    path: '#'
   },
   {
     icon: FaUser,
     text: 'Accounts',
-    path: '/'
+    path: '#'
   },
   {
     icon: InvestmentIocn,
     text: 'Investments',
-    path: '/'
+    path: '#'
   },
   {
     icon: CreditcardIcon,
@@ -43,17 +42,17 @@ export const SideBarItems = [
   {
     icon: LoanIcon,
     text: 'Loans',
-    path: '/'
+    path: '#'
   },
   {
     icon: ServiceIcon,
     text: 'Services',
-    path: '/'
+    path: '#'
   },
   {
     icon: Privileges,
     text: 'My Privileges',
-    path: '/'
+    path: '#'
   },
   {
     icon: FaCog,

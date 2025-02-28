@@ -73,15 +73,15 @@ const SettingsPage: React.FC = () => {
   }
 
   return (
-    <div className="max-w-[1110px] mx-auto overflow-hidden pt-3">
-      <div className="bg-white p-[30px] rounded-[25px] shadow-md mt-6">
+    <div className="max-w-[1110px] mx-auto overflow-hidden px-4 bg-light-bg">
+      <div className="bg-white p-[12px] md:p-[30px] rounded-[25px] shadow-md mt-6">
         <div className="flex border-b border-border-dark mt-4 mb-10 relative">
           {['Edit Profile', 'Preferences', 'Security'].map((tab) => (
             <button
               key={tab}
-              className={`p-0 md:py-2 md:px-4 mx-4 font-[500] text-[13px] transition-all relative ${
+              className={`p-0 pb-1 md:py-2 md:px-4 mx-4 font-[500] text-[13px] transition-all relative ${
                 activeTab === tab
-                  ? 'text-light-black rounded-b-xl pb-2'
+                  ? 'text-light-black rounded-b-xl'
                   : 'text-grey'
               }`}
               onClick={() => setActiveTab(tab)}
@@ -97,7 +97,7 @@ const SettingsPage: React.FC = () => {
         {activeTab === 'Edit Profile' && (
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="flex flex-col items-center md:flex-row md:items-start md:gap-10">
-              <div className="relative ml-14">
+              <div className="relative ml:0 md:ml-14">
                 <img
                   src={preview}
                   alt="Profile"
