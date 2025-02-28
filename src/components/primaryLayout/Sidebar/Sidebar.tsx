@@ -22,7 +22,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsSidebarOpen }) => {
         <div className="flex items-center justify-between py-6 px-3">
           <div className="flex items-center space-x-3">
             <Logo />
-            <span className="text-light-black py-2 rounded-lg font-extrabold text-[25px]">
+            <span className="text-primary py-2 rounded-lg font-extrabold text-[25px]">
               Soar Task
             </span>
           </div>
