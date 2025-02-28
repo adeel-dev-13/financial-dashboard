@@ -1,4 +1,5 @@
 import { IconType } from 'react-icons'
+import { Link } from 'react-router'
 
 interface SidebarItemProps {
   text: string
@@ -14,8 +15,8 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   href
 }) => {
   return (
-    <a
-      href={href}
+    <Link
+      to={href}
       className={`relative flex items-center space-x-4 p-4 cursor-pointer transition rounded-lg 
         ${active ? 'bg-white-shade1' : 'hover:bg-gray-100'}
       `}
@@ -35,7 +36,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
       >
         {text}
       </span>
-    </a>
+    </Link>
   )
 }
 
